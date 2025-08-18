@@ -11,17 +11,17 @@
       
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../config/">
+        <link rel="next" href="../">
       
       <link rel="icon" href="../../static/favicon.svg">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.20">
     
     
       
-        <title>Basics - Rye</title>
+        <title>Migrating to uv - Rye</title>
       
     
     
@@ -103,7 +103,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basics" class="md-skip">
+        <a href="#migrating-to-uv" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
           <div class="md-banner__inner md-grid md-typeset">
             
             
-Rye is no longer developed as of February 2025. Please see the <a href="../uv/">guide on migrating to uv</a>.
+Rye is no longer developed as of February 2025. Please see the <a href="./">guide on migrating to uv</a>.
 
           </div>
           
@@ -145,7 +145,7 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Basics
+              Migrating to uv
             
           </span>
         </div>
@@ -252,7 +252,7 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
   
   
     <li class="md-tabs__item">
-      <a href="../uv/" class="md-tabs__link md-tabs__link--active">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
         User Guide
       </a>
     </li>
@@ -390,11 +390,120 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../uv/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Migrating to uv
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Migrating to uv
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-existing-projects" class="md-nav__link">
+    Migrating existing projects
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating existing projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scripts-and-tasks-toolryescripts" class="md-nav__link">
+    Scripts and tasks: [tool.rye.scripts]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexes-and-repos-toolryesources" class="md-nav__link">
+    Indexes and repos: [[tool.rye.sources]]
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migrating-command-line-usage-and-workflows" class="md-nav__link">
+    Migrating command-line usage and workflows
+  </a>
+  
+    <nav class="md-nav" aria-label="Migrating command-line usage and workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-installations-and-shims" class="md-nav__link">
+    Python installations and shims
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rye-lint-rye-fmt-and-rye-test" class="md-nav__link">
+    rye lint, rye fmt, and rye test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-creation" class="md-nav__link">
+    Project creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lockfiles-docker" class="md-nav__link">
+    Lockfiles, Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback" class="md-nav__link">
+    Feedback
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -432,94 +541,11 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Basics
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
         Basics
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#first-sync" class="md-nav__link">
-    First Sync
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-dependencies" class="md-nav__link">
-    Adding Dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#listing-dependencies" class="md-nav__link">
-    Listing Dependencies
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#remove-a-dependency" class="md-nav__link">
-    Remove a Dependency
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#working-with-the-project" class="md-nav__link">
-    Working with the Project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inspecting-the-project" class="md-nav__link">
-    Inspecting the Project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#executable-projects" class="md-nav__link">
-    Executable projects
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1447,7 +1473,7 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
                   
 
   
-    <a href="https://github.com/astral-sh/rye/edit/main/docs/guide/basics.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/astral-sh/rye/edit/main/docs/guide/uv.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1455,127 +1481,55 @@ Rye is no longer developed as of February 2025. Please see the <a href="../uv/">
   
 
 
-<h1 id="basics">Basics</h1>
-<p>To use Rye you need to have a <code>pyproject.toml</code> based Python project.  For this guide you can
-create one with <a href="../commands/init/"><code>rye init</code></a> which will create a new folder with a new project inside:</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>init<span class="w"> </span>my-project
-<span class="nb">cd</span><span class="w"> </span>my-project
-</code></pre></div>
-<p>The following structure will be created:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .git
-├── .gitignore
-├── .python-version
-├── README.md
-├── pyproject.toml
-└── src
-    └── my_project
-        └── __init__.py
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Good to Know</p>
-<p>The <code>init</code> command accepts a lot of options to customize what it generates.  Run
-<code>rye init --help</code> to see all the options available in the version you have installed.</p>
-</div>
-<p>A <code>pyproject.toml</code> is used to store metadata about your project as well as some Rye
-configuration.  Most of Rye's commands will require a <code>pyproject.toml</code> to work.  Note
-that Rye today does not support <code>setup.py</code> based projects.  Note that when Rye initializes
-a project it also writes a <code>.python-version</code> file.  This file contains the version number
-of the Python version that should be used for this project.  It can be changed by
-running <code>rye pin</code>.  For instance to tell Rye to use Python 3.10:</p>
-<div class="highlight"><pre><span></span><code>$ rye pin 3.10
-</code></pre></div>
-<h2 id="first-sync">First Sync</h2>
-<p>Once that is done, you can use <code>rye sync</code> to get the first synchronization.  After that,
-Rye will have created a virtualenv in <code>.venv</code> and written lockfiles into <code>requirements.lock</code>
-and <code>requirements-dev.lock</code>.</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>sync
-</code></pre></div>
-<p>The virtualenv that Rye manages is placed in <code>.venv</code> next to your <code>pyproject.toml</code>.
-The first time you run this you will notice that Rye automatically downloaded and
-installed a compatible CPython interpreter for you.  If you have already another
-Python installation on your system it will not be used!  For more information about
-this behavior <a href="../toolchains/">read about toolchains</a>.</p>
-<p>You can activate and work with it as normal with one notable exception: the Python
-installation in it does not contain <code>pip</code>.  If you have correctly installed Rye
-with the shims enabled, after the sync you can run <code>python</code> and you will automatically
-be operating in that virtualenv, even if it's not enabled.  You can validate this
-by printing out <code>sys.prefix</code>:</p>
-<div class="highlight"><pre><span></span><code>python -c &quot;import sys; print(sys.prefix)&quot;
-</code></pre></div>
-<p>It will print out the full path to the managed virtualenv.</p>
-<h2 id="adding-dependencies">Adding Dependencies</h2>
-<p>Use the <code>add</code> command to add dependencies to your project.</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;flask&gt;=2.0&quot;</span>
-</code></pre></div>
-<p>Followed by <code>rye sync</code> to install the dependency into the virtual environment. 
-If you want to add packages from custom indexes, you have to <a href="../sources/">configure the source</a>
-first.</p>
-<h2 id="listing-dependencies">Listing Dependencies</h2>
-<p>You can invoke <code>rye list</code> to get a dump of all installed dependencies of your project.
-Note that this only lists dependencies that are actually installed, so make sure to <code>sync</code> first.</p>
-<div class="highlight"><pre><span></span><code>rye list
-</code></pre></div>
-<h2 id="remove-a-dependency">Remove a Dependency</h2>
-<p>Use the <code>remove</code> command to remove a dependency from the project again.</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>remove<span class="w"> </span>flask
-</code></pre></div>
-<h2 id="working-with-the-project">Working with the Project</h2>
-<p>To run executables in the context of the virtualenv you can use the <code>run</code> command. For
-instance, to use <code>black</code>, add it to the project, sync the virtual environment, and run it
-over the current directory like this:</p>
-<div class="highlight"><pre><span></span><code>rye add black
-rye sync
-rye run black .
-</code></pre></div>
-<p>If you want to have the commands available directly you will need to activate the
-virtualenv like you do normally.  To activate the virtualenv, use the standard methods:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Unix</label><label for="__tabbed_1_2">Windows</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>.<span class="w"> </span>.venv/bin/activate
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>.venv\Scripts\activate
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>To deactivate it again run <code>deactivate</code>:</p>
-<div class="highlight"><pre><span></span><code>deactivate
-</code></pre></div>
-<h2 id="inspecting-the-project">Inspecting the Project</h2>
-<p>The <code>rye show</code> command can print out information about the project's state.  By
-just running <code>rye show</code> you can see which Python version is used, where the
-virtualenv is located and more.</p>
-<div class="highlight"><pre><span></span><code>rye show
-</code></pre></div>
-<h2 id="executable-projects">Executable projects</h2>
-<p>To generate a project that is aimed to provide an executable
-script, use <code>rye init --script</code>:</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>init<span class="w"> </span>--script<span class="w"> </span>my-project
-<span class="nb">cd</span><span class="w"> </span>my-project
-</code></pre></div>
-<p>The following structure will be created:</p>
-<div class="highlight"><pre><span></span><code>.
-├── .git
-├── .gitignore
-├── .python-version
-├── README.md
-├── pyproject.toml
-└── src
-    └── my_project
-        └── __init__.py
-        └── __main__.py
-</code></pre></div>
-<p>The <a href="../pyproject/"><code>pyproject.toml</code></a> will be generated with a
-<a href="../pyproject/#projectscripts"><code>[project.scripts]</code></a> section containing a
-<code>my-project</code> script that points to the <code>main()</code> function of <code>__init__.py</code>. After
-you synchronized your changes, you can run the script with <code>rye run my-project</code>.</p>
-<div class="highlight"><pre><span></span><code>rye<span class="w"> </span>sync
-rye<span class="w"> </span>run<span class="w"> </span>my-project
-</code></pre></div>
+<h1 id="migrating-to-uv">Migrating to uv</h1>
+<p>Rye is no longer developed. We recommend that Rye users migrate to <a href="https://docs.astral.sh/uv/">uv</a>, the <a href="https://lucumr.pocoo.org/2024/8/21/harvest-season/">successor project</a> from the same maintainers. uv is actively maintained and much more widely used, and it supports almost all of Rye's features (as well as several features not available in Rye).</p>
+<p>Rye and uv have similar philosophies, CLIs, and user experience. Both are project management tools that follow Python standards wherever possible, so migrating your workflows should be easy. Start with <a href="https://docs.astral.sh/uv/getting-started/">uv's getting started guide</a>.</p>
+<p>This document has guidance on how to migrate specific Rye features to uv, targeted at uv 0.8.0 / July 2025. If you're on an older version of uv, please upgrade. (If you are reading this page in the future, check the linked issues below to see if even more features have been implemented in uv!)</p>
+<h2 id="migrating-existing-projects">Migrating existing projects</h2>
+<p>If you don't have <code>[tool.rye]</code> sections in your <code>pyproject.toml</code> file, your project should work out of the box in uv with no further changes.</p>
+<p>If you have <code>[tool.rye]</code> sections in your <code>pyproject.toml</code> file, you will need to convert them to <code>[tool.uv]</code> sections. Most of the time, all you need to do is rename the sections.</p>
+<p>A few configuration keys are slightly different but easy to migrate:</p>
+<ul>
+<li><code>tool.rye.universal</code> and <code>tool.rye.generate-hashes</code> are under the <code>tool.uv.pip</code> namespace, i.e., <code>tool.uv.pip.universal</code> and <code>tool.uv.pip.generate-hashes</code>.</li>
+<li><code>tool.rye.lock-with-sources</code> corresponds to <code>tool.uv.no-sources</code> but with the sense inverted, i.e., convert <code>lock-with-sources = false</code> to <code>no-sources = true</code>.</li>
+<li><code>tool.rye.virtual</code> corresponds to <code>tool.uv.package</code> but with the sense inverted, i.e., convert <code>virtual = true</code> to <code>package = false</code>.</li>
+<li><code>tool.rye.sources</code> loosely corresponds to <code>tool.uv.indexes</code>. See below for syntax differences.</li>
+<li><code>tool.rye.dev-dependencies</code> should be converted to the standardized <a href="https://docs.astral.sh/uv/concepts/projects/dependencies/#dependency-groups"><code>dependency-groups.dev</code></a> key (<code>tool.uv.dev-dependencies</code> works too but is deprecated).</li>
+</ul>
+<p>See also the <a href="https://docs.astral.sh/uv/reference/settings/">uv configuration reference</a>.</p>
+<h3 id="scripts-and-tasks-toolryescripts">Scripts and tasks: <code>[tool.rye.scripts]</code></h3>
+<p>As of July 2025, uv does not yet have a task runner. Please see the feature request in <a href="https://github.com/astral-sh/uv/issues/5903">astral-sh/uv#5903</a>, which also has links to some third-party alternatives that are usable today via <code>uv run</code>.</p>
+<p>(Note that this is not related to executable scripts in the standard <code>[project.scripts]</code> section, which is fully supported in uv.)</p>
+<h3 id="indexes-and-repos-toolryesources">Indexes and repos: <code>[[tool.rye.sources]]</code></h3>
+<p>uv's support for configuring package indexes is, in general, more flexible than Rye's. Indexes are listed in <code>[[tool.uv.indexes]]</code> (which corresponds to <code>[[tool.rye.sources]]</code>), and you can specify that you want specific packages in your requirements to come from a particular index using <code>[[tool.uv.sources]]</code>. To override the default index, use <code>default = true</code> instead of <code>name = "default"</code>. For a "find-links" index, use <code>format = "flat"</code> instead of <code>type = "find-links"</code>.</p>
+<p>See the <a href="https://docs.astral.sh/uv/concepts/indexes/">uv documentation on package indexes</a> for more details.</p>
+<p>Rye expands environment variables in the URLs of indexes. uv currently does not support this exact feature (see <a href="https://github.com/astral-sh/uv/issues/5734">astral-sh/uv#5734</a>), but for most use cases there are alternatives:</p>
+<ul>
+<li>If you are filling in a username and password, <a href="https://docs.astral.sh/uv/concepts/indexes/#authentication">uv supports</a> setting them via environment variables or loading them from an external keyring provider.</li>
+<li>If you are filling in the actual URL of an index, you can instead specify the full URL of an index on the command line with the <a href="https://docs.astral.sh/uv/reference/environment/#uv_index"><code>UV_INDEX</code></a> or <a href="https://docs.astral.sh/uv/reference/environment/#uv_default_index"><code>UV_DEFAULT_INDEX</code></a> environment variables.</li>
+<li>If you are using custom indexes for PyTorch, consider the <a href="https://docs.astral.sh/uv/reference/settings/#pip_torch-backend"><code>torch-backend = auto</code></a> setting.</li>
+</ul>
+<p>You can also configure indexes in <a href="https://docs.astral.sh/uv/concepts/configuration-files/">global configuration</a> to avoid placing them in your project-specific <code>pyproject.toml</code> file.</p>
+<h2 id="migrating-command-line-usage-and-workflows">Migrating command-line usage and workflows</h2>
+<p>While you will likely find the <code>uv</code> CLI tool familiar if you're used to <code>rye</code>, they have their own interfaces. Please read the <a href="https://docs.astral.sh/uv/getting-started/features/">getting started guide</a> and the <a href="https://docs.astral.sh/uv/reference/cli/"><code>uv</code> CLI reference</a>.</p>
+<h3 id="python-installations-and-shims">Python installations and shims</h3>
+<p>Both uv and Rye support installing the same managed Python releases from <a href="https://github.com/astral-sh/python-build-standalone">python-build-standalone</a> (now under Astral stewardship), so you should find Python behavior to be highly compatible.</p>
+<p>Rye supports a <a href="https://rye.astral.sh/guide/shims/">global Python shim</a> that sets up the <code>python</code> and <code>python3</code> commands to run a managed version of Python. While this is highly convenient, it does risk breaking existing software on your computer that expects the OS version of Python.</p>
+<p>As of uv 0.8.0, <code>uv python install</code> will install a <code>python3.x</code> command for the latest stable managed Python. If you would like to install <code>python</code> and <code>python3</code> commands too. you can use <code>uv python install --preview</code>. Note that this is <em>not</em> a shim, just a direct link to the Python installation; it does not pick up dependencies from the current project. This behavior may change in the future; <a href="https://github.com/astral-sh/uv/issues/6265">astral-sh/uv#6265</a> tracks uv adding a Python shim.</p>
+<p>In general, you can use <code>uv run python</code> to get a Python shell in the current project, and <code>uvx python</code> to get an isolated Python. Both commands support <code>--with</code> to add dependencies. See the documentation for <a href="https://docs.astral.sh/uv/reference/cli/#uv-run"><code>uv run</code></a>.</p>
+<h3 id="rye-lint-rye-fmt-and-rye-test"><code>rye lint</code>, <code>rye fmt</code>, and <code>rye test</code></h3>
+<p>Rye has short commands that run other programs. <code>rye lint</code> (aka <code>rye check</code>) and <code>rye fmt</code> (aka <code>rye format</code>) both run <a href="https://docs.astral.sh/ruff/">Ruff</a>, and <code>rye test</code> runs <a href="https://docs.pytest.org/en/stable/">pytest</a>. uv currently does not have specific aliases for these. (See also the section above about scripts and tasks.)</p>
+<p>You can add these to your projects as dev dependencies with <code>uv add --dev ruff</code> and <code>uv add --dev pytest</code>, which will let you run <code>uv run ruff check</code>, <code>uv run ruff format</code>, and <code>uv run pytest</code>. The versions of Ruff and pytest will be tracked in your <code>pyproject.toml</code> for reproducibility.</p>
+<p>Alternatively, you can use <code>uvx ruff</code> to run it without installing it to your project. (This will not work for pytest, which needs to run your project's code; you need to add it as a dev dependency, just as <code>rye test</code> requires.)</p>
+<h3 id="project-creation">Project creation</h3>
+<p><code>rye init --script</code> creates a project with a script runnable with <code>uv run</code>. The corresponding uv command is <code>uv init --package</code>, which adds an executable script by default. <code>uv init --script</code> does something else: it creates a <a href="https://docs.astral.sh/uv/guides/scripts/">single-file executable script that supports dependencies</a> with a PEP 723 header, a feature Rye does not support.</p>
+<h3 id="lockfiles-docker">Lockfiles, Docker</h3>
+<p>Rye generates a lockfile named <code>requirements.lock</code> with a syntax compatible with <code>pip</code> and other tools that handle <code>requirements.txt</code> files.</p>
+<p>uv uses its own lock file format (<code>uv.lock</code>). If you need a <code>requirements.txt</code>-style lock file for use with other tools, you can generate one with <a href="https://docs.astral.sh/uv/concepts/projects/sync/#exporting-the-lockfile"><code>uv export</code></a>.</p>
+<p>However, we strongly recommend using uv to manage your environment installation in production, too! In particular, Rye's Docker documentation suggests using <code>uv pip install</code> or <code>pip install</code> to install from the <code>requirements.lock</code> file. Instead of trying to adapt this workflow, take a look at <a href="https://docs.astral.sh/uv/guides/integration/docker/">uv's Docker integration guide</a>, which recommends using uv directly in your Docker image, with <code>uv sync</code> in your build step and <code>uv run</code> in your <code>CMD</code>.</p>
+<h2 id="feedback">Feedback</h2>
+<p>If you have issues migrating a Rye project to uv, please feel free to <a href="https://docs.astral.sh/uv/getting-started/help/">ask for help in one of uv's support forums</a> such as GitHub or Discord.</p>
+<p>Thank you for using Rye! We hope you enjoy uv.</p>
 
 
 
@@ -1604,7 +1558,7 @@ rye<span class="w"> </span>run<span class="w"> </span>my-project
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation" rel="prev">
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome" rel="prev">
             <div class="md-footer__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
             </div>
@@ -1613,20 +1567,20 @@ rye<span class="w"> </span>run<span class="w"> </span>my-project
                 Previous
               </span>
               <div class="md-ellipsis">
-                Installation
+                Welcome
               </div>
             </div>
           </a>
         
         
           
-          <a href="../config/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration" rel="next">
+          <a href="../" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Configuration
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
