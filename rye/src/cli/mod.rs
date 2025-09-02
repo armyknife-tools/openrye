@@ -5,7 +5,7 @@ use anyhow::{bail, Error};
 use clap::Parser;
 
 mod add;
-mod ai;
+// mod ai;
 mod build;
 mod config;
 mod fetch;
@@ -20,6 +20,7 @@ mod pin;
 mod publish;
 mod remove;
 mod run;
+// mod rust;
 mod rye;
 mod shim;
 mod show;
@@ -57,7 +58,7 @@ struct Args {
 #[derive(Parser, Debug)]
 enum Command {
     Add(add::Args),
-    Ai(ai::Args),
+    // Ai(ai::Args),
     Build(build::Args),
     Config(config::Args),
     Fetch(fetch::Args),
@@ -73,6 +74,7 @@ enum Command {
     Publish(publish::Args),
     Remove(remove::Args),
     Run(run::Args),
+    // Rust(rust::Args),
     Show(show::Args),
     Sync(sync::Args),
     Test(test::Args),
@@ -133,7 +135,7 @@ pub fn execute() -> Result<(), Error> {
 
     match cmd {
         Command::Add(cmd) => add::execute(cmd),
-        Command::Ai(cmd) => ai::execute(cmd),
+        // Command::Ai(cmd) => ai::execute(cmd),
         Command::Build(cmd) => build::execute(cmd),
         Command::Config(cmd) => config::execute(cmd),
         Command::Fetch(cmd) => fetch::execute(cmd),
@@ -147,6 +149,7 @@ pub fn execute() -> Result<(), Error> {
         Command::Publish(cmd) => publish::execute(cmd),
         Command::Remove(cmd) => remove::execute(cmd),
         Command::Run(cmd) => run::execute(cmd),
+        // Command::Rust(cmd) => rust::execute(cmd),
         Command::Show(cmd) => show::execute(cmd),
         Command::Sync(cmd) => sync::execute(cmd),
         Command::Test(cmd) => test::execute(cmd),

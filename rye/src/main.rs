@@ -6,7 +6,7 @@ use crate::utils::QuietExit;
 #[macro_use]
 mod tui;
 
-mod ai;
+// mod ai;
 mod bootstrap;
 mod cli;
 mod config;
@@ -15,6 +15,7 @@ mod installer;
 mod lock;
 mod platform;
 mod pyproject;
+// mod rust_interop;
 mod sources;
 mod sync;
 mod utils;

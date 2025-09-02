@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::env;
 
 pub mod anthropic;
+pub mod knowledge;
 pub mod openai;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

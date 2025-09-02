@@ -224,20 +224,3 @@ fn optimize_code(assistant: Box<dyn AIAssistant>, args: OptimizeArgs) -> Result<
     Ok(())
 }
 
-// Helper macros for consistent output
-macro_rules! echo {
-    () => {
-        println!()
-    };
-    ($($arg:tt)*) => {
-        println!($($arg)*)
-    };
-}
-
-macro_rules! style {
-    ($text:expr) => {
-        console::style($text)
-    };
-}
-
-use {echo, style};

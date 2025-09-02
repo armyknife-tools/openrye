@@ -74,9 +74,11 @@ impl AnthropicAssistant {
         client.post_field_size(request_body.len() as u64)?;
         
         {
+            use std::io::Read;
             let mut transfer = client.transfer();
-            transfer.read_function(|buf| {
-                Ok(request_body.as_bytes().read(buf).unwrap_or(0))
+            let mut request_bytes = request_body.as_bytes();
+            transfer.read_function(move |buf| {
+                Ok(request_bytes.read(buf).unwrap_or(0))
             })?;
             transfer.write_function(|data| {
                 response_data.extend_from_slice(data);
