@@ -1,84 +1,114 @@
 <div align="center">
   <img src="docs/static/favicon.svg" width="100">
-  <p><strong>Rye:</strong> a Hassle-Free Python Experience</p>
+  <p><strong>OpenRye:</strong> AI-Powered Python & Rust Development Platform</p>
 </div>
 
 ----
 <div align="center">
 
-[![Rye](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/rye/main/artwork/badge.json)](https://rye.astral.sh)
-[![](https://dcbadge.vercel.app/api/server/drbkcdtSbg?style=flat)](https://discord.gg/drbkcdtSbg)
+[![OpenRye](https://img.shields.io/badge/OpenRye-v0.45.0-blue)](https://github.com/openrye/openrye)
+[![Discord](https://dcbadge.vercel.app/api/server/drbkcdtSbg?style=flat)](https://discord.gg/drbkcdtSbg)
 
 </div>
 
 > [!NOTE]
->
-> Rye is no longer developed. We encourage all users to use [uv](https://docs.astral.sh/uv/), the
-> [successor project](https://lucumr.pocoo.org/2024/8/21/harvest-season/) from the same
-> maintainers, which is actively maintained and much more widely used.
->
-> For current Rye users, please see the [uv migration guide](https://rye.astral.sh/guide/uv/).
-> While Rye will continue to be available, no further updates are planned,
-> including security updates.
+> OpenRye is the next evolution of Rye, enhanced with AI capabilities and seamless Rust integration.
+> This project combines the best of Python package management with AI-assisted development
+> and native Rust performance extensions.
 
-Rye is a comprehensive project and package management solution for Python.
-Born from [its creator's](https://github.com/mitsuhiko) desire to establish a
-one-stop-shop for all Python users, Rye provides a unified experience to install and manage Python
-installations, `pyproject.toml` based projects, dependencies and virtualenvs
-seamlessly.  It's designed to accommodate complex projects, monorepos and to
-facilitate global tool installations.  Curious? [Watch an introduction](https://youtu.be/q99TYA7LnuA).
+OpenRye is a comprehensive AI-powered project and package management solution for Python and Rust.
+Building on the solid foundation of Rye, OpenRye adds cutting-edge AI assistance from Anthropic and OpenAI,
+seamless Python-Rust interoperability, and advanced development features that rival and exceed tools like
+uv and poetry. It provides a unified experience to install and manage Python installations, 
+`pyproject.toml` based projects, dependencies, virtualenvs, and Rust extensions seamlessly.
 
-A hassle-free experience for Python developers at every level.
+## Key Features
 
-<div align="center">
-  <a href="https://youtu.be/q99TYA7LnuA">
-    <img src="https://img.youtube.com/vi/q99TYA7LnuA/hqdefault.jpg" alt="Watch the instruction" width="40%">
-  </a>
-  <p><em>Click on the thumbnail to watch a 16 minute introduction video</em></p>
-</div>
+### 🤖 AI-Powered Development
+* **Intelligent Code Suggestions:** Get AI-powered code completions and suggestions
+* **Automated Dependency Resolution:** AI helps resolve complex dependency conflicts
+* **Smart Error Handling:** AI analyzes errors and provides actionable solutions
+* **Code Generation:** Generate boilerplate code and project structures with AI
+
+### 🦀 Rust Integration
+* **Native Extensions:** Write Python extensions in Rust with zero friction
+* **Performance Optimization:** Automatically identify and optimize hot paths with Rust
+* **Seamless Interop:** Call Rust code from Python as easily as importing a module
+* **Cargo Integration:** Full cargo compatibility for Rust dependencies
+
+### 📦 Advanced Package Management
+* **Smart Dependency Resolution:** AI-enhanced conflict resolution
+* **Multi-Language Support:** Manage Python and Rust dependencies together
+* **Workspace Management:** Handle complex monorepo structures effortlessly
+* **Universal Tool Installation:** Install and manage development tools globally
 
 ## In The Box
 
-Rye picks and ships the right tools so you can get started in minutes:
+OpenRye picks and ships the right tools so you can get started in minutes:
 
-* **Bootstraps Python:** it provides an automated way to get access to the amazing [Indygreg Python Builds](https://github.com/indygreg/python-build-standalone/) as well as the PyPy binary distributions.
-* **Linting and Formatting:** it bundles [ruff](https://github.com/astral-sh/ruff) and makes it available with `rye lint` and `rye fmt`.
-* **Managing Virtualenvs:** it uses the well established virtualenv library under the hood.
-* **Building Wheels:** it delegates that work largely to [build](https://pypi.org/project/build/).
-* **Publishing:** its publish command uses [twine](https://pypi.org/project/twine/) to accomplish this task.
-* **Locking and Dependency Installation:** is today implemented by using [uv](https://github.com/astral-sh/uv) with a fallback to [unearth](https://pypi.org/project/unearth/) and [pip-tools](https://github.com/jazzband/pip-tools/).
-* **Workspace support:** Rye lets you work with complex projects consisting
-  of multiple libraries.
+* **Bootstraps Python:** Automated access to [Indygreg Python Builds](https://github.com/indygreg/python-build-standalone/) and PyPy
+* **AI Assistant:** Built-in AI helper using Anthropic Claude and OpenAI GPT models
+* **Rust Toolchain:** Automatic Rust setup and management for extensions
+* **Linting and Formatting:** Bundled [ruff](https://github.com/astral-sh/ruff) with `openrye lint` and `openrye fmt`
+* **Virtual Environments:** Industry-standard virtualenv management
+* **Building & Publishing:** Streamlined wheel building and package publishing
+* **Dependency Locking:** Advanced locking with [uv](https://github.com/astral-sh/uv) backend
 
 ## Installation
 
-The installation takes just a minute:
+Get started with OpenRye in under a minute:
 
 * **Linux and macOS:**
 
-    ```
-    curl -sSf https://rye.astral.sh/get | bash
+    ```bash
+    curl -sSf https://openrye.dev/get | bash
     ```
 
 * **Windows:**
 
-    Download and run the installer ([64-bit (x86-64)](https://github.com/astral-sh/rye/releases/latest/download/rye-x86_64-windows.exe) or [32-bit (x86)](https://github.com/astral-sh/rye/releases/latest/download/rye-x86-windows.exe)).
+    Download and run the installer ([64-bit](https://github.com/openrye/openrye/releases/latest/download/openrye-x86_64-windows.exe) or [32-bit](https://github.com/openrye/openrye/releases/latest/download/openrye-x86-windows.exe)).
 
-For more details and other options, refer to the [installation instructions](https://rye.astral.sh/guide/installation/).
+For more details and other options, refer to the [installation instructions](https://openrye.dev/guide/installation/).
+
+## Quick Start
+
+```bash
+# Create a new Python project with AI assistance
+openrye init my-project --ai
+
+# Add dependencies with smart suggestions
+openrye add numpy pandas --suggest
+
+# Create a Rust extension
+openrye rust init my_extension
+
+# Get AI help with your code
+openrye ai assist "How do I optimize this function?"
+
+# Build and test with AI-powered error analysis
+openrye build --ai-analyze
+openrye test --smart
+```
 
 ## Learn More
 
-Did I spark your interest?
+* [Visit the Website](https://openrye.dev/)
+* [Read the Documentation](https://openrye.dev/guide/)
+* [AI Integration Guide](https://openrye.dev/guide/ai/)
+* [Rust Extensions Tutorial](https://openrye.dev/guide/rust/)
+* [Report Issues](https://github.com/openrye/openrye/issues)
 
-* [Visit the Website](https://rye.astral.sh/)
-* [Read the Documentation](https://rye.astral.sh/guide/)
-* [Report Problems in the Issue Tracker](https://github.com/astral-sh/rye/issues)
+## Community
 
-## More
+* [Discussion Forum](https://github.com/openrye/openrye/discussions) - Project discussions
+* [Discord](https://discord.gg/openrye) - Real-time developer chat
+* [Issue Tracker](https://github.com/openrye/openrye/issues) - Bug reports and feature requests
 
-* [Discussion Forum](https://github.com/astral-sh/rye/discussions), to discuss the project
-  on GitHub
-* [Discord](https://discord.gg/drbkcdtSbg), for conversations with other developers in text form
-* [Issue Tracker](https://github.com/astral-sh/rye/issues), if you run into bugs or have suggestions
-* [Badges](https://rye.astral.sh/community/#badges), if you want to show that you use Rye
-* License: MIT
+## License
+
+MIT - See [LICENSE](LICENSE) for details
+
+## Acknowledgments
+
+OpenRye builds upon the excellent foundation of Rye, originally created by Armin Ronacher.
+We're grateful for the open-source community's contributions that make this project possible.

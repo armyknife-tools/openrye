@@ -7,7 +7,7 @@ use anyhow::{anyhow, Context, Error};
 use winreg::enums::{RegType, HKEY_CURRENT_USER, KEY_READ, KEY_WRITE};
 use winreg::{RegKey, RegValue};
 
-const RYE_UNINSTALL_ENTRY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\Rye";
+const RYE_UNINSTALL_ENTRY: &str = r"Software\Microsoft\Windows\CurrentVersion\Uninstall\OpenRye";
 
 pub(crate) fn add_to_path(rye_home: &Path) -> Result<(), Error> {
     let target_path = reverse_resolve_user_profile(rye_home.join("shims"));
@@ -35,7 +35,7 @@ pub(crate) fn remove_from_path(rye_home: &Path) -> Result<(), Error> {
 
 /// If the target path is under the user profile, replace it with %USERPROFILE%.  The
 /// motivation here is that this was the path we documented originally so someone updating
-/// Rye does not end up with two competing paths in the list for no reason.
+/// OpenRye does not end up with two competing paths in the list for no reason.
 fn reverse_resolve_user_profile(path: PathBuf) -> PathBuf {
     if let Some(user_profile) = env::var_os("USERPROFILE").map(PathBuf::from) {
         if let Ok(rest) = path.strip_prefix(&user_profile) {
@@ -160,7 +160,7 @@ pub(crate) fn add_to_programs(rye_home: &Path) -> Result<(), Error> {
         .context("Failed creating uninstall key")?
         .0;
 
-    // Don't overwrite registry if Rye is already installed
+    // Don't overwrite registry if OpenRye is already installed
     let prev = key
         .get_raw_value("UninstallString")
         .map(|val| from_winreg_value(&val));
@@ -187,12 +187,12 @@ pub(crate) fn add_to_programs(rye_home: &Path) -> Result<(), Error> {
         .context("Failed to set uninstall string")?;
     key.set_value(
         "DisplayName",
-        &"Rye: An Experimental Package Management Solution for Python",
+        &"OpenRye: AI-Powered Python & Rust Development Platform",
     )
     .context("Failed to set display name")?;
     key.set_value("DisplayVersion", &current_version)
         .context("Failed to set display version")?;
-    key.set_value("Publisher", &"Rye")
+    key.set_value("Publisher", &"OpenRye")
         .context("Failed to set publisher")?;
 
     Ok(())

@@ -45,7 +45,7 @@ pub struct Args {
 
 /// Register a Python binary.
 ///
-/// Rye by default will automatically download Python releases from the internet.
+/// OpenRye by default will automatically download Python releases from the internet.
 /// However it's also possible to register already available local Python
 /// installations.  This allows you to use rye with self compiled Pythons.
 #[derive(Parser, Debug)]

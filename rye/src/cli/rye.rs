@@ -47,7 +47,7 @@ esac
 
 "#;
 
-/// Rye self management
+/// OpenRye self management
 #[derive(Parser, Debug)]
 pub struct Args {
     #[command(subcommand)]
@@ -552,11 +552,11 @@ fn perform_install(
         },
     };
 
-    echo!("{}", style("Welcome to Rye!").bold());
+    echo!("{}", style("Welcome to OpenRye!").bold());
 
     if matches!(mode, InstallMode::AutoInstall) {
         echo!();
-        echo!("Rye has detected that it's not installed on this computer yet and");
+        echo!("OpenRye has detected that it's not installed on this computer yet and");
         echo!("automatically started the installer for you. For more information");
         echo!(
             "read {}",
@@ -575,7 +575,7 @@ fn perform_install(
     );
     echo!();
     echo!("{}", style("Details:").bold());
-    echo!("  Rye Version: {}", style(env!("CARGO_PKG_VERSION")).cyan());
+    echo!("  OpenRye Version: {}", style(env!("CARGO_PKG_VERSION")).cyan());
     echo!("  Platform: {} ({})", style(OS).cyan(), style(ARCH).cyan());
     if let Some(ref toolchain_path) = toolchain_path {
         echo!(
@@ -620,8 +620,8 @@ fn perform_install(
         .is_none()
         && (matches!(mode, InstallMode::NoPrompts)
             || dialoguer::Select::with_theme(tui_theme())
-                .with_prompt("What should running `python` or `python3` do when you are not inside a Rye managed project?")
-                .item("Run a Python installed and managed by Rye")
+                .with_prompt("What should running `python` or `python3` do when you are not inside an OpenRye managed project?")
+                .item("Run a Python installed and managed by OpenRye")
                 .item("Run the old default Python (provided by your OS, pyenv, etc.)")
                 .default(0)
                 .interact()?
@@ -756,7 +756,7 @@ fn add_rye_to_path(mode: &InstallMode, shims: &Path, ask: bool) -> Result<(), Er
                 || !ask
                 || dialoguer::Confirm::with_theme(tui_theme())
                     .with_prompt(format!(
-                        "Should the installer add Rye to {} via .profile?",
+                        "Should the installer add OpenRye to {} via .profile?",
                         style("PATH").cyan()
                     ))
                     .interact()?

@@ -1,6 +1,6 @@
 [package]
-name = "rye"
-version = "0.44.0"
+name = "openrye"
+version = "0.45.0"
 edition = "2021"
 license = "MIT"
 

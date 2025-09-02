@@ -39,7 +39,7 @@ use crate::utils::IoPathContext;
 
 git_testament!(TESTAMENT);
 
-/// An Experimental Package Management Solution for Python
+/// OpenRye: AI-Powered Python & Rust Development Platform
 #[derive(Parser, Debug)]
 #[command(arg_required_else_help = true)]
 struct Args {
