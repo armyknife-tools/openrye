@@ -6,6 +6,7 @@ use crate::utils::QuietExit;
 #[macro_use]
 mod tui;
 
+mod ai;
 mod bootstrap;
 mod cli;
 mod config;

@@ -5,6 +5,7 @@ use anyhow::{bail, Error};
 use clap::Parser;
 
 mod add;
+mod ai;
 mod build;
 mod config;
 mod fetch;
@@ -56,6 +57,7 @@ struct Args {
 #[derive(Parser, Debug)]
 enum Command {
     Add(add::Args),
+    Ai(ai::Args),
     Build(build::Args),
     Config(config::Args),
     Fetch(fetch::Args),
@@ -131,6 +133,7 @@ pub fn execute() -> Result<(), Error> {
 
     match cmd {
         Command::Add(cmd) => add::execute(cmd),
+        Command::Ai(cmd) => ai::execute(cmd),
         Command::Build(cmd) => build::execute(cmd),
         Command::Config(cmd) => config::execute(cmd),
         Command::Fetch(cmd) => fetch::execute(cmd),
