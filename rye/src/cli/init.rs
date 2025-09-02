@@ -95,6 +95,10 @@ struct ArgTemplateChoice {
     /// Generate an executable project.
     #[arg(long)]
     script: bool,
+    
+    /// Use a project template (e.g., fastapi, django, flask)
+    #[arg(long, value_name = "NAME")]
+    template: Option<String>,
 }
 
 enum TemplateChoice {

@@ -6,6 +6,7 @@ use clap::Parser;
 
 mod add;
 // mod ai;
+mod audit;
 mod build;
 mod config;
 mod fetch;
@@ -25,6 +26,7 @@ mod rye;
 mod shim;
 mod show;
 mod sync;
+mod template;
 mod test;
 mod toolchain;
 mod tools;
@@ -59,6 +61,7 @@ struct Args {
 enum Command {
     Add(add::Args),
     // Ai(ai::Args),
+    Audit(audit::Args),
     Build(build::Args),
     Config(config::Args),
     Fetch(fetch::Args),
@@ -77,6 +80,7 @@ enum Command {
     // Rust(rust::Args),
     Show(show::Args),
     Sync(sync::Args),
+    Template(template::Args),
     Test(test::Args),
     Toolchain(toolchain::Args),
     Tools(tools::Args),
@@ -136,6 +140,7 @@ pub fn execute() -> Result<(), Error> {
     match cmd {
         Command::Add(cmd) => add::execute(cmd),
         // Command::Ai(cmd) => ai::execute(cmd),
+        Command::Audit(cmd) => audit::execute(cmd),
         Command::Build(cmd) => build::execute(cmd),
         Command::Config(cmd) => config::execute(cmd),
         Command::Fetch(cmd) => fetch::execute(cmd),
@@ -152,6 +157,7 @@ pub fn execute() -> Result<(), Error> {
         // Command::Rust(cmd) => rust::execute(cmd),
         Command::Show(cmd) => show::execute(cmd),
         Command::Sync(cmd) => sync::execute(cmd),
+        Command::Template(cmd) => template::execute(cmd),
         Command::Test(cmd) => test::execute(cmd),
         Command::Toolchain(cmd) => toolchain::execute(cmd),
         Command::Tools(cmd) => tools::execute(cmd),
