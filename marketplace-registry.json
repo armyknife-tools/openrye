@@ -1,0 +1,126 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2025-01-02T00:00:00Z",
+  "templates": [
+    {
+      "name": "fastapi-production",
+      "display_name": "FastAPI Production",
+      "version": "1.0.0",
+      "description": "Production-ready FastAPI with async, auth, testing, and Docker",
+      "author": "OpenRye Community",
+      "category": "Web API",
+      "keywords": ["api", "fastapi", "async", "production", "docker", "jwt", "sqlalchemy"],
+      "url": "https://github.com/openrye/templates/releases/download/fastapi-v1.0.0/fastapi-production.ryet",
+      "repository": "https://github.com/openrye/fastapi-template",
+      "homepage": "https://openrye.dev/templates/fastapi-production",
+      "downloads": 1523,
+      "rating": 4.8,
+      "reviews": 47,
+      "verified": true,
+      "featured": true,
+      "min_openrye_version": "0.47.0",
+      "size_kb": 28,
+      "updated_at": "2025-01-02T00:00:00Z",
+      "screenshots": [
+        "https://openrye.dev/templates/fastapi/screenshot1.png",
+        "https://openrye.dev/templates/fastapi/screenshot2.png"
+      ],
+      "demo_url": "https://fastapi-demo.openrye.dev"
+    },
+    {
+      "name": "django-starter",
+      "display_name": "Django Starter",
+      "version": "1.0.0",
+      "description": "Django with admin, ORM, and best practices",
+      "author": "OpenRye Community",
+      "category": "Web Framework",
+      "keywords": ["django", "web", "orm", "admin"],
+      "url": "https://github.com/openrye/templates/releases/download/django-v1.0.0/django-starter.ryet",
+      "repository": "https://github.com/openrye/django-template",
+      "downloads": 892,
+      "rating": 4.6,
+      "reviews": 31,
+      "verified": true,
+      "featured": false,
+      "min_openrye_version": "0.47.0",
+      "size_kb": 24,
+      "updated_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "name": "ml-pipeline",
+      "display_name": "ML Pipeline",
+      "version": "0.9.0",
+      "description": "Machine learning project with notebooks, training, and deployment",
+      "author": "DataScience Team",
+      "category": "Data Science",
+      "keywords": ["ml", "machine-learning", "pytorch", "tensorflow", "jupyter"],
+      "url": "https://github.com/openrye/templates/releases/download/ml-v0.9.0/ml-pipeline.ryet",
+      "repository": "https://github.com/openrye/ml-template",
+      "downloads": 456,
+      "rating": 4.7,
+      "reviews": 19,
+      "verified": true,
+      "featured": true,
+      "min_openrye_version": "0.47.0",
+      "size_kb": 35,
+      "updated_at": "2024-12-28T00:00:00Z"
+    },
+    {
+      "name": "cli-tool",
+      "display_name": "CLI Tool",
+      "version": "1.1.0",
+      "description": "Command-line application with Click, Rich, and testing",
+      "author": "CLI Enthusiasts",
+      "category": "CLI",
+      "keywords": ["cli", "click", "rich", "terminal"],
+      "url": "https://github.com/openrye/templates/releases/download/cli-v1.1.0/cli-tool.ryet",
+      "repository": "https://github.com/openrye/cli-template",
+      "downloads": 234,
+      "rating": 4.5,
+      "reviews": 12,
+      "verified": true,
+      "featured": false,
+      "min_openrye_version": "0.47.0",
+      "size_kb": 18,
+      "updated_at": "2024-12-20T00:00:00Z"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Web API",
+      "description": "REST and GraphQL API templates",
+      "count": 12
+    },
+    {
+      "name": "Web Framework",
+      "description": "Full-stack web applications",
+      "count": 8
+    },
+    {
+      "name": "Data Science",
+      "description": "ML, data analysis, and notebooks",
+      "count": 15
+    },
+    {
+      "name": "CLI",
+      "description": "Command-line tools and scripts",
+      "count": 7
+    },
+    {
+      "name": "Discord Bot",
+      "description": "Discord and chat bots",
+      "count": 4
+    },
+    {
+      "name": "Library",
+      "description": "Python packages and libraries",
+      "count": 9
+    }
+  ],
+  "stats": {
+    "total_templates": 127,
+    "total_downloads": 45892,
+    "active_publishers": 89,
+    "new_this_week": 5
+  }
+}

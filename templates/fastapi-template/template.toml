@@ -1,0 +1,56 @@
+[template]
+name = "fastapi-production"
+version = "1.0.0"
+description = "Production-ready FastAPI with async, auth, testing, and Docker"
+author = "OpenRye Community"
+license = "MIT"
+homepage = "https://github.com/openrye/templates"
+repository = "https://github.com/openrye/fastapi-template"
+keywords = ["api", "fastapi", "async", "production", "docker", "jwt"]
+
+[template.metadata]
+min_openrye_version = "0.47.0"
+category = "Web API"
+difficulty = "intermediate"
+downloads = 0
+rating = 0.0
+verified = true
+
+[dependencies]
+fastapi = ">=0.104.0"
+uvicorn = { version = ">=0.24.0", extras = ["standard"] }
+pydantic = ">=2.5.0"
+pydantic-settings = ">=2.1.0"
+python-multipart = ">=0.0.6"
+python-jose = { version = ">=3.3.0", extras = ["cryptography"] }
+passlib = { version = ">=1.7.4", extras = ["bcrypt"] }
+python-dotenv = ">=1.0.0"
+httpx = ">=0.25.0"
+sqlalchemy = ">=2.0.0"
+alembic = ">=1.12.0"
+
+[dev-dependencies]
+pytest = ">=7.4.0"
+pytest-asyncio = ">=0.21.0"
+pytest-cov = ">=4.1.0"
+black = ">=23.0.0"
+ruff = ">=0.1.0"
+mypy = ">=1.7.0"
+pre-commit = ">=3.5.0"
+
+[tool.rye.scripts]
+dev = "uvicorn app.main:app --reload --host 0.0.0.0 --port 8000"
+start = "uvicorn app.main:app --host 0.0.0.0 --port 8000"
+test = "pytest tests/ -v --cov=app --cov-report=term-missing"
+lint = "ruff check . && black --check ."
+format = "black . && ruff check --fix ."
+typecheck = "mypy app/"
+migrate = "alembic upgrade head"
+makemigrations = "alembic revision --autogenerate -m"
+
+[variables]
+project_name = { prompt = "Project name", default = "my_api", pattern = "^[a-z][a-z0-9_]*$" }
+use_postgres = { prompt = "Use PostgreSQL?", type = "bool", default = true }
+use_redis = { prompt = "Use Redis for caching?", type = "bool", default = false }
+use_docker = { prompt = "Include Docker configuration?", type = "bool", default = true }
+include_ci = { prompt = "Include GitHub Actions CI?", type = "bool", default = true }

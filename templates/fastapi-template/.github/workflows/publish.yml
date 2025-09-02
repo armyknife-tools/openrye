@@ -1,0 +1,100 @@
+name: Publish Template
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Validate Template
+      run: |
+        # Check template.toml exists
+        if [ ! -f "template.toml" ]; then
+          echo "Error: template.toml not found"
+          exit 1
+        fi
+        
+        # Validate structure
+        if [ ! -d "template" ]; then
+          echo "Error: template/ directory not found"
+          exit 1
+        fi
+        
+        echo "✅ Template structure valid"
+    
+    - name: Create Package
+      run: |
+        # Create .ryet package (tar.gz)
+        tar -czf fastapi-production.ryet template.toml template/
+        echo "📦 Package created: fastapi-production.ryet"
+        
+        # Calculate checksum
+        sha256sum fastapi-production.ryet > fastapi-production.ryet.sha256
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          fastapi-production.ryet
+          fastapi-production.ryet.sha256
+        body: |
+          ## FastAPI Production Template
+          
+          Production-ready FastAPI template with:
+          - 🔐 JWT Authentication
+          - 📦 SQLAlchemy ORM  
+          - 🐳 Docker Support
+          - 🧪 Testing with Pytest
+          - 📝 Pre-commit Hooks
+          
+          ### Installation
+          
+          ```bash
+          # From marketplace
+          openrye template install fastapi-production
+          
+          # Direct from GitHub
+          openrye template install github:openrye/fastapi-template
+          
+          # From release URL
+          openrye template install https://github.com/openrye/fastapi-template/releases/latest/download/fastapi-production.ryet
+          ```
+          
+          ### Usage
+          
+          ```bash
+          openrye init --template fastapi-production my-api
+          cd my-api
+          openrye sync
+          openrye run dev
+          ```
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Update Marketplace Registry
+      run: |
+        # This would update the central registry
+        echo "Updating marketplace registry..."
+        
+        # Create registry entry
+        cat > registry.json << EOF
+        {
+          "name": "fastapi-production",
+          "version": "${{ github.ref_name }}",
+          "url": "https://github.com/${{ github.repository }}/releases/latest/download/fastapi-production.ryet",
+          "checksum_url": "https://github.com/${{ github.repository }}/releases/latest/download/fastapi-production.ryet.sha256",
+          "repository": "${{ github.repository }}",
+          "downloads": 0,
+          "rating": 0.0,
+          "published_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+        }
+        EOF
+        
+        echo "✅ Registry updated"
