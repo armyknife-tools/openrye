@@ -12,6 +12,21 @@
 
 </div>
 
+## 📖 Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [🚀 Complete Quick Start Guide](#-complete-quick-start-guide)
+  - [Essential Commands Cheat Sheet](#-essential-commands-cheat-sheet)
+  - [Complete Workflow Examples](#-complete-workflow-example)
+  - [Command Line Arguments Reference](#-command-line-arguments-reference)
+  - [Pro Tips & Best Practices](#-pro-tips--best-practices)
+- [Template System](#-template-system)
+- [2025-2026 Roadmap](#-2025-2026-roadmap-next-generation-python-development)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Overview
 
 OpenRye is a comprehensive AI-powered project and package management solution for Python and Rust. Building on the solid foundation of Rye, OpenRye adds cutting-edge AI assistance, seamless Python-Rust interoperability, and advanced development features that rival and exceed tools like uv and poetry.
@@ -25,11 +40,17 @@ OpenRye is a comprehensive AI-powered project and package management solution fo
 - **Project Scaffolding** - Quick project initialization with best practices
 - **Workspace Support** - Monorepo and multi-project management
 
-### AI Integration (Coming Soon)
+### 🤖 AI Integration (Now Available!)
 - **Intelligent Code Analysis** - AI-powered error analysis and solutions
 - **Smart Dependencies** - AI suggests optimal packages for your project
 - **Code Generation** - Generate boilerplate and complex implementations
 - **Performance Optimization** - AI identifies and optimizes bottlenecks
+- **Test Generation** - Automatically generate pytest test cases
+- **Python to Rust Conversion** - Convert hot paths to Rust for speed
+- **Error Fixing** - Get AI assistance to fix errors
+- **Supports OpenAI (GPT-4/GPT-5) and Anthropic Claude**
+
+See [AI Usage Guide](AI_USAGE_GUIDE.md) for detailed instructions.
 
 ### Rust Extensions (Coming Soon)
 - **Native Performance** - Write Python extensions in Rust
@@ -64,40 +85,381 @@ cargo build --release
 - Rust 1.75+ (for building from source)
 - Python 3.8+ (managed automatically by OpenRye)
 
-## How to Use OpenRye - Comprehensive Guide
+## 🚀 Complete Quick Start Guide
 
-### 🚀 Quick Start
+### Getting Maximum Value from OpenRye
 
-#### First Time Setup
+OpenRye combines the speed of Rust with AI intelligence to give you the ultimate Python development experience. Here's how to leverage every feature:
+
+### ⚡ Essential Commands Cheat Sheet
 
 ```bash
-# Install OpenRye
-curl -sSf https://openrye.dev/get | bash
+# Project Management
+openrye init <name>           # Create new project
+openrye add <package>         # Add dependency
+openrye remove <package>      # Remove dependency
+openrye sync                  # Install all dependencies
+openrye run <script>          # Run project scripts
+openrye build                 # Build distributions
+openrye publish               # Publish to PyPI
 
-# Verify installation
-openrye --version
+# AI-Powered Development (GPT-5 - 8x cheaper than GPT-4!)
+openrye ai analyze <file>     # Analyze code quality
+openrye ai deps               # Suggest dependencies
+openrye ai fix <error>        # Fix errors with AI
+openrye ai test <file>        # Generate tests
+openrye ai to-rust <file>     # Convert to Rust
 
-# Configure OpenRye (optional)
-openrye config
+# Python Management
+openrye fetch <version>       # Install Python version
+openrye pin <version>         # Pin Python version
+openrye toolchain list        # List Python versions
+
+# Development Tools
+openrye fmt                   # Format code
+openrye lint                  # Run linters
+openrye test                  # Run tests
+openrye shell                 # Activate virtualenv
 ```
 
-#### Creating Your First Project
+### 🎯 Complete Workflow Example
 
+#### 1. Starting a New Project
 ```bash
-# Create a new project
-openrye init my-awesome-project
-cd my-awesome-project
+# Method 1: From scratch
+openrye init my-api --python 3.11
+cd my-api
 
-# Or use a template from the marketplace
-openrye template install fastapi-template
-cd fastapi-template
+# Method 2: From template (recommended!)
+openrye template list                     # See available templates
+openrye init my-api --template fastapi    # Use FastAPI template
+cd my-api
 
-# Install dependencies
+# Method 3: Existing project
+cd existing-project
+openrye init                              # Initialize in current directory
+```
+
+#### 2. Managing Dependencies
+```bash
+# Add production dependencies
+openrye add fastapi "uvicorn[standard]" sqlalchemy
+openrye add "pydantic>=2.0"              # Version constraints
+
+# Add development dependencies
+openrye add --dev pytest black mypy ruff
+openrye add --dev "pytest-cov>=4.0"
+
+# Add optional dependency groups
+openrye add --optional-group docs mkdocs mkdocs-material
+
+# Remove unwanted packages
+openrye remove old-package
+
+# Sync all dependencies (like npm install)
 openrye sync
 
-# Run development server
-openrye run dev
+# Update dependencies
+openrye lock --update-all                # Update all
+openrye lock --update requests           # Update specific
 ```
+
+#### 3. AI-Powered Development
+```bash
+# Setup (one-time)
+export OPENAI_API_KEY="sk-..."          # Your API key
+
+# Code Analysis
+openrye ai analyze src/main.py          # Single file
+openrye ai analyze src/ --recursive     # Entire directory
+openrye ai analyze . --format json      # JSON output for CI/CD
+
+# Dependency Management
+openrye ai deps --description "REST API with PostgreSQL and Redis"
+openrye ai deps --optimize              # Optimize existing deps
+openrye ai deps --file requirements.txt # From requirements file
+
+# Error Fixing
+openrye ai fix "ImportError: No module named 'pandas'"
+openrye ai fix "TypeError in line 42" --context src/main.py
+
+# Test Generation
+openrye ai test src/calculator.py --output tests/test_calculator.py
+openrye ai test src/ --coverage         # Generate with coverage
+
+# Performance Optimization
+openrye ai to-rust src/compute.py       # Convert hot paths to Rust
+openrye ai optimize src/slow_function.py # Get optimization tips
+```
+
+#### 4. Running Your Project
+```bash
+# Define scripts in pyproject.toml
+[tool.openrye.scripts]
+dev = "uvicorn main:app --reload"
+test = "pytest tests/ -v"
+lint = "ruff check . && mypy ."
+format = "black . && ruff format ."
+
+# Run scripts
+openrye run dev                         # Start dev server
+openrye run test                        # Run tests
+openrye run lint                        # Run linters
+openrye run format                      # Format code
+
+# Direct Python execution
+openrye run python script.py            # Run Python script
+openrye run python -m module            # Run module
+```
+
+#### 5. Python Version Management
+```bash
+# Install Python versions
+openrye fetch 3.11.7                    # Specific version
+openrye fetch 3.12                      # Latest 3.12.x
+openrye fetch --list                    # See available versions
+
+# Pin project to Python version
+openrye pin 3.11                        # Pin to 3.11.x
+openrye pin 3.11.7                      # Pin exact version
+
+# List installed Pythons
+openrye toolchain list
+openrye toolchain list --all            # Include downloadable
+```
+
+#### 6. Building and Publishing
+```bash
+# Build your package
+openrye build                           # Build wheel and sdist
+openrye build --wheel                   # Wheel only
+openrye build --sdist                   # Source dist only
+
+# Publish to PyPI
+openrye publish                         # Publish to PyPI
+openrye publish --repository testpypi   # Test PyPI
+openrye publish --skip-build            # If already built
+```
+
+### 📋 Command Line Arguments Reference
+
+#### Global Options
+```bash
+openrye --version                       # Show version
+openrye --help                          # Show help
+openrye -v                             # Verbose output
+openrye -q                             # Quiet mode
+```
+
+#### Init Command
+```bash
+openrye init [OPTIONS] [PATH]
+  --python <VERSION>                    # Python version (e.g., 3.11)
+  --template <NAME>                     # Use template
+  --no-pin                             # Don't pin Python version
+  --virtual                            # Create virtual package
+  --lib                                # Create library project
+  --script                             # Create single-file script
+```
+
+#### Add Command
+```bash
+openrye add [OPTIONS] <PACKAGES>...
+  --dev                                # Add as dev dependency
+  --optional-group <GROUP>             # Add to optional group
+  --pin <STRATEGY>                     # Pin strategy (exact, >=)
+  --features <FEATURES>                # Package features/extras
+  --git <URL>                         # Install from git
+  --path <PATH>                       # Install from local path
+  --sync                               # Sync after adding
+  --pre                                # Allow pre-releases
+```
+
+#### Sync Command
+```bash
+openrye sync [OPTIONS]
+  --no-dev                            # Skip dev dependencies
+  --with-group <GROUP>                # Include optional group
+  --all-groups                        # Include all groups
+  --no-lock                           # Don't update lock file
+  --force                             # Force reinstall
+```
+
+#### Run Command
+```bash
+openrye run [OPTIONS] <COMMAND> [ARGS]...
+  --list                              # List available scripts
+  --python <VERSION>                  # Use specific Python
+  --pyproject <FILE>                  # Custom pyproject.toml
+```
+
+#### AI Commands
+```bash
+# Analyze
+openrye ai analyze [OPTIONS] <FILE>
+  --format <FORMAT>                   # Output format (text/json)
+  --recursive                         # Analyze directory
+  --fix                              # Auto-fix issues
+
+# Dependencies
+openrye ai deps [OPTIONS]
+  --description <DESC>                # Project description
+  --file <FILE>                      # Read from file
+  --optimize                         # Optimize existing
+  --save                             # Save to pyproject.toml
+
+# Fix
+openrye ai fix [OPTIONS] <ERROR>
+  --context <FILE>                   # Context file
+  --apply                            # Apply fix automatically
+
+# Test Generation
+openrye ai test [OPTIONS] <FILE>
+  --output <FILE>                    # Output file
+  --framework <NAME>                 # Test framework (pytest/unittest)
+  --coverage                         # Include coverage
+
+# Rust Conversion
+openrye ai to-rust [OPTIONS] <FILE>
+  --output <FILE>                    # Output Rust file
+  --benchmark                        # Include benchmarks
+  --bindings                         # Generate Python bindings
+```
+
+### 💡 Pro Tips & Best Practices
+
+#### Performance Optimization
+```bash
+# Use UV backend (default, 100x faster)
+openrye config set use-uv true
+
+# Enable global cache
+openrye config set global-python true
+
+# Use hardlinks for packages
+openrye config set use-hardlinks true
+
+# Parallel operations
+openrye sync --jobs 8
+```
+
+#### Workspace Management
+```bash
+# Create workspace
+mkdir my-workspace && cd my-workspace
+openrye init --virtual
+
+# Add projects
+openrye workspace add packages/core
+openrye workspace add packages/api
+openrye workspace add packages/cli
+
+# Sync all workspace packages
+openrye sync --workspace
+```
+
+#### Environment Variables
+```bash
+# Load .env files
+openrye run --env-file .env python script.py
+openrye run --env-file .env.local --env-file .env dev
+
+# Set Python path
+export OPENRYE_PYTHON="/usr/bin/python3.11"
+
+# Set home directory
+export OPENRYE_HOME="$HOME/.openrye"
+
+# Debug mode
+export OPENRYE_LOG=debug openrye sync
+```
+
+#### CI/CD Integration
+```yaml
+# GitHub Actions
+- name: Install OpenRye
+  run: |
+    curl -sSf https://openrye.dev/get | bash
+    echo "$HOME/.rye/shims" >> $GITHUB_PATH
+
+- name: Setup project
+  run: |
+    openrye fetch 3.11
+    openrye sync
+
+- name: AI Analysis
+  env:
+    OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+  run: |
+    openrye ai analyze src/ --format json
+    openrye test
+```
+
+### 🎓 Advanced Usage
+
+#### Custom Scripts
+```toml
+# pyproject.toml
+[tool.openrye.scripts]
+dev = { cmd = "uvicorn main:app --reload", env = { DEBUG = "1" } }
+test = { chain = ["test:unit", "test:integration"] }
+"test:unit" = "pytest tests/unit -v"
+"test:integration" = "pytest tests/integration -v"
+migrate = "alembic upgrade head"
+seed = "python scripts/seed_db.py"
+```
+
+#### Lock File Management
+```bash
+# Generate/update lock file
+openrye lock
+
+# Update all dependencies
+openrye lock --update-all
+
+# Update specific package
+openrye lock --update fastapi
+
+# Verify lock file
+openrye lock --verify
+```
+
+#### Virtual Environments
+```bash
+# Activate shell
+openrye shell
+
+# Or manually
+source .venv/bin/activate           # Unix/macOS
+.venv\Scripts\activate               # Windows
+
+# Run in venv without activation
+openrye run python script.py
+
+# Show venv info
+openrye show
+```
+
+### 🚫 Common Gotchas & Solutions
+
+```bash
+# Problem: SSL certificate errors
+openrye config set trusted-host pypi.org
+
+# Problem: Permission denied
+chmod +x ~/.rye/shims/python
+
+# Problem: Slow downloads
+openrye config set index-url https://pypi.org/simple
+
+# Problem: Package conflicts
+openrye sync --force
+
+# Problem: AI not working
+openrye ai config --show             # Check configuration
+export OPENAI_API_KEY="sk-..."      # Set API key
+```
+
 
 ### 📦 Template System
 
@@ -753,18 +1115,165 @@ cargo test
 cargo run -- --version
 ```
 
-## Roadmap
+## 🚀 2025-2026 Roadmap: Next-Generation Python Development
+
+### Q1 2025: Performance & Core Features
+**Goal: Match and exceed uv's performance benchmarks**
+
+#### ⚡ Ultra-Fast Operations (Targeting 100x speedup)
+- [ ] **Parallel dependency resolution** - Multi-threaded resolver in Rust
+- [ ] **Global module cache with hardlinks** - Copy-on-write optimization like uv
+- [ ] **Incremental compilation cache** - Cache Python bytecode across projects
+- [ ] **Native ARM64/M1 optimizations** - Platform-specific performance tuning
+- [ ] **Zero-copy installations** - Hardlink packages from global cache
+
+#### 🔧 Core Tool Unification
+- [ ] **Replace pip, pipx, pyenv completely** - Single binary for all operations
+- [ ] **Built-in Python installation** - Download and manage Python versions natively
+- [ ] **Hermetic script execution** - Run scripts with inline dependencies (like uv)
+- [ ] **Cross-platform lockfiles** - Platform-independent dependency resolution
+- [ ] **Workspace-aware operations** - Efficient monorepo support
+
+### Q2 2025: AI-Powered Development
+**Goal: First AI-native Python package manager**
+
+#### 🤖 Intelligent Assistance
+- [ ] **AI dependency recommendations** - Suggest best packages for your use case
+- [ ] **Smart conflict resolution** - AI resolves version conflicts automatically
+- [ ] **Code-aware dependency analysis** - Scan code to identify missing/unused deps
+- [ ] **Vulnerability prediction** - ML model predicts security issues before they're reported
+- [ ] **Performance bottleneck detection** - AI identifies slow dependencies
+
+#### 🧠 Code Generation & Analysis
+- [ ] **Project scaffolding with AI** - Generate entire project structures from prompts
+- [ ] **Automatic type stub generation** - Create .pyi files for untyped packages
+- [ ] **Smart error recovery** - AI suggests fixes for installation/runtime errors
+- [ ] **Dependency optimization** - AI suggests lighter alternatives
+- [ ] **Custom template generation** - AI creates templates from descriptions
+
+### Q3 2025: Rust Integration & Performance
+**Goal: Seamless Python-Rust development**
+
+#### 🦀 Native Extensions
+- [ ] **PyO3 integration** - Build Python extensions in Rust seamlessly
+- [ ] **Automatic FFI generation** - Generate Python bindings from Rust code
+- [ ] **Hot path optimization** - Convert Python bottlenecks to Rust automatically
+- [ ] **Maturin integration** - Built-in support for mixed Python/Rust projects
+- [ ] **WASM compilation** - Compile Python/Rust to WebAssembly
+
+#### ⚙️ Advanced Performance
+- [ ] **JIT compilation support** - Integrate with Python JIT compilers
+- [ ] **Distributed builds** - Build packages across multiple machines
+- [ ] **Incremental recompilation** - Only rebuild changed components
+- [ ] **Profile-guided optimization** - Use runtime profiles to optimize packages
+- [ ] **Memory-mapped package loading** - Faster package imports
+
+### Q4 2025: Ecosystem Integration
+**Goal: Best-in-class developer experience**
+
+#### 🔌 IDE & Tool Integration
+- [ ] **VS Code extension** - Full IDE integration with IntelliSense
+- [ ] **JetBrains plugin** - PyCharm/IntelliJ integration
+- [ ] **LSP server** - Language Server Protocol for any editor
+- [ ] **GitHub Actions** - Native CI/CD integration
+- [ ] **Pre-commit hooks** - Automatic code quality checks
+
+#### 🌐 Cloud & Collaboration
+- [ ] **Cloud workspace sync** - Sync environments across machines
+- [ ] **Remote development** - Develop on remote machines seamlessly
+- [ ] **Shared dependency cache** - Team-wide package cache
+- [ ] **Private package registry** - Host internal packages
+- [ ] **Reproducible builds** - Bit-for-bit identical builds
+
+### Q1 2026: Advanced Package Management
+**Goal: Redefine package management paradigms**
+
+#### 📦 Next-Gen Packaging
+- [ ] **Quantum dependency resolution** - Use quantum algorithms for NP-hard problems
+- [ ] **Blockchain package verification** - Immutable package integrity
+- [ ] **P2P package distribution** - Decentralized package hosting
+- [ ] **Smart contracts for dependencies** - Automated licensing compliance
+- [ ] **Neural package search** - Natural language package discovery
+
+#### 🔒 Security & Compliance
+- [ ] **Supply chain analysis** - Full dependency tree security scanning
+- [ ] **License compatibility checker** - Automatic license conflict detection
+- [ ] **SBOM generation** - Software Bill of Materials for compliance
+- [ ] **Runtime security monitoring** - Detect malicious package behavior
+- [ ] **Automated CVE patching** - Apply security patches automatically
+
+### Q2 2026: Platform Innovation
+**Goal: Beyond traditional package management**
+
+#### 🌟 Revolutionary Features
+- [ ] **Time-travel debugging** - Revert to any previous environment state
+- [ ] **Predictive dependency updates** - AI predicts breaking changes
+- [ ] **Cross-language interop** - Seamless Python/Rust/Go/JS integration
+- [ ] **Quantum-resistant cryptography** - Future-proof security
+- [ ] **Neural code optimization** - AI optimizes entire codebases
+
+#### 🏗️ Infrastructure
+- [ ] **Edge computing support** - Deploy to edge devices seamlessly
+- [ ] **Kubernetes native** - Built-in K8s deployment
+- [ ] **Serverless packaging** - Optimize for Lambda/Functions
+- [ ] **IoT device support** - Package for embedded systems
+- [ ] **Mobile deployment** - Python apps on iOS/Android
+
+## 📊 Performance Targets
+
+| Operation | Current Tools | OpenRye Target | Improvement |
+|-----------|--------------|----------------|-------------|
+| Install 100 packages | 60s (pip) | 0.5s | 120x |
+| Resolve complex deps | 30s (poetry) | 0.3s | 100x |
+| Create virtualenv | 3s (venv) | 0.1s | 30x |
+| Install Python | 45s (pyenv) | 2s | 22x |
+| Package search | 2s (pip) | 0.05s | 40x |
+
+## 🎯 Key Differentiators from Competitors
+
+### vs. uv
+- **AI-powered features** - Intelligent assistance uv doesn't have
+- **Rust extensions** - Native Python-Rust interop
+- **Template marketplace** - Community-driven templates
+- **Advanced caching** - Neural predictive caching
+
+### vs. Poetry
+- **100x faster** - Rust performance vs Python
+- **Python management** - Built-in Python installation
+- **AI assistance** - Smart dependency resolution
+- **Global cache** - Shared package storage
+
+### vs. PDM
+- **Better UX** - Simpler, more intuitive interface
+- **Performance** - Rust-based for maximum speed
+- **AI features** - Intelligent development assistance
+- **Template system** - Rich project templates
+
+### vs. Pixi/Conda
+- **Pure Python focus** - Not trying to manage system packages
+- **Faster resolver** - Custom Rust implementation
+- **AI integration** - Smart package recommendations
+- **Modern architecture** - Built for cloud-native development
+
+## 🎪 Unique Innovations Coming to OpenRye
+
+1. **Template Marketplace** - .ryet package format for sharing templates
+2. **AI Code Analysis** - Real-time code quality suggestions
+3. **Rust Hot Paths** - Automatic Python→Rust optimization
+4. **Distributed Builds** - Build on multiple machines in parallel
+5. **Quantum Algorithms** - Next-gen dependency resolution
+6. **Neural Caching** - Predictive package pre-fetching
+7. **Blockchain Verification** - Immutable package integrity
+8. **Time-travel Environments** - Snapshot and restore any state
+9. **Cross-language Interop** - Seamless multi-language projects
+10. **Edge Deployment** - One-click IoT/edge packaging
+
+## Old Roadmap (Completed)
 
 - [x] Core Python project management
 - [x] Fast dependency resolution with uv
 - [x] Virtual environment management
 - [x] Basic rebranding to OpenRye
-- [ ] AI-powered code analysis
-- [ ] Rust extension support
-- [ ] Async/await optimizations
-- [ ] Package vulnerability scanning
-- [ ] Cloud workspace sync
-- [ ] IDE integrations
 
 ## License
 

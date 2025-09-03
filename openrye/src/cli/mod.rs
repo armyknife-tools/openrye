@@ -1,19 +1,24 @@
 use std::env;
 use std::path::PathBuf;
 
+// TODO-TEACHING: anyhow provides flexible error handling with context
+// bail! macro for early returns with errors
 use anyhow::{bail, Error};
+// TODO-TEACHING: Clap 4 with derive macros for type-driven CLI
 use clap::Parser;
 
+// TODO-TEACHING: Module-per-command pattern - excellent separation of concerns
 mod add;
-// mod ai;
-mod audit;
+// TODO-INNOVATIVE: AI module for intelligent dependency resolution
+mod ai;
+mod audit;  // TODO-FEATURE: Security vulnerability scanning
 mod build;
 mod config;
 mod fetch;
-mod fmt;
+mod fmt;  // TODO-IMPROVEMENT: Integrate with rustfmt for Rust files
 mod init;
 mod install;
-mod lint;
+mod lint;  // TODO-IMPROVEMENT: Add clippy integration for Rust
 mod list;
 mod lock;
 mod make_req;
@@ -21,12 +26,13 @@ mod pin;
 mod publish;
 mod remove;
 mod run;
+// TODO-INNOVATIVE: Rust compilation and cargo integration
 // mod rust;
-mod rye;
+mod rye;  // TODO-REFACTOR: Rename to 'self' or 'openrye' for consistency
 mod shim;
 mod show;
-mod sync;
-mod template;
+mod sync;  // TODO-IMPROVEMENT: Make async for parallel dependency resolution
+mod template;  // TODO-TEACHING: Our innovative template system
 mod test;
 mod toolchain;
 mod tools;
@@ -44,8 +50,10 @@ use crate::utils::IoPathContext;
 git_testament!(TESTAMENT);
 
 /// OpenRye: AI-Powered Python & Rust Development Platform
+// TODO-TEACHING: Derive macros generate boilerplate code at compile time
+// Parser trait implementation is generated from this struct
 #[derive(Parser, Debug)]
-#[command(arg_required_else_help = true)]
+#[command(arg_required_else_help = true)]  // Shows help if no args provided
 struct Args {
     #[command(subcommand)]
     command: Option<Command>,
@@ -57,10 +65,13 @@ struct Args {
     version: bool,
 }
 
+// TODO-TEACHING: Enum variants become subcommands
+// Each variant holds the args for that command
+// TODO-IMPROVEMENT: Consider grouping related commands
 #[derive(Parser, Debug)]
 enum Command {
     Add(add::Args),
-    // Ai(ai::Args),
+    Ai(ai::Args),
     Audit(audit::Args),
     Build(build::Args),
     Config(config::Args),
@@ -139,7 +150,7 @@ pub fn execute() -> Result<(), Error> {
 
     match cmd {
         Command::Add(cmd) => add::execute(cmd),
-        // Command::Ai(cmd) => ai::execute(cmd),
+        Command::Ai(cmd) => ai::execute(cmd),
         Command::Audit(cmd) => audit::execute(cmd),
         Command::Build(cmd) => build::execute(cmd),
         Command::Config(cmd) => config::execute(cmd),
