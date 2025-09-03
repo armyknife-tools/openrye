@@ -1,6 +1,10 @@
 // AI Module for OpenRye - Intelligent Python Development Assistance
 // Supports multiple AI providers: OpenAI (active) and Anthropic Claude (placeholder)
 
+pub mod code_reviewer;
+pub mod pr_generator;
+pub mod security_audit;
+
 use anyhow::{Context, Result, bail};
 use serde::{Deserialize, Serialize};
 use std::env;

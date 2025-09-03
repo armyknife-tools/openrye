@@ -23,8 +23,10 @@ mod list;
 mod lock;
 mod make_req;
 mod pin;
+mod pr;  // AI-powered PR generator
 mod publish;
 mod remove;
+mod review;  // AI code review
 mod run;
 // TODO-INNOVATIVE: Rust compilation and cargo integration
 // mod rust;
@@ -85,8 +87,11 @@ enum Command {
     Lint(lint::Args),
     MakeReq(make_req::Args),
     Pin(pin::Args),
+    #[command(alias = "pull-request")]
+    Pr(pr::Args),
     Publish(publish::Args),
     Remove(remove::Args),
+    Review(review::Args),
     Run(run::Args),
     // Rust(rust::Args),
     Show(show::Args),
@@ -162,8 +167,10 @@ pub fn execute() -> Result<(), Error> {
         Command::Lint(cmd) => lint::execute(cmd),
         Command::MakeReq(cmd) => make_req::execute(cmd),
         Command::Pin(cmd) => pin::execute(cmd),
+        Command::Pr(cmd) => pr::execute(cmd),
         Command::Publish(cmd) => publish::execute(cmd),
         Command::Remove(cmd) => remove::execute(cmd),
+        Command::Review(cmd) => review::execute(cmd),
         Command::Run(cmd) => run::execute(cmd),
         // Command::Rust(cmd) => rust::execute(cmd),
         Command::Show(cmd) => show::execute(cmd),
