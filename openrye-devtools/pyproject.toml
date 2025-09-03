@@ -1,7 +1,7 @@
 [project]
-name = "rye-devtools"
+name = "openrye-devtools"
 version = "1.0.0"
-description = "Development tools for rye"
+description = "Development tools for OpenRye"
 authors = [{ name = "Armin Ronacher", email = "armin.ronacher@active-4.com" }]
 dependencies = [
     "httpx[socks]>=0.26.0",
@@ -9,8 +9,8 @@ dependencies = [
 requires-python = ">= 3.11"
 
 [project.scripts]
-find-downloads = "rye_devtools.find_downloads:main"
-uv-downloads = "rye_devtools.find_uv_downloads:main"
+find-downloads = "openrye_devtools.find_downloads:main"
+uv-downloads = "openrye_devtools.find_uv_downloads:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -26,4 +26,4 @@ dev-dependencies = [
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/rye_devtools"]
+packages = ["src/openrye_devtools"]
